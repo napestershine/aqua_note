@@ -11,7 +11,7 @@ class GenusController extends Controller
     /**
      * @Route("/genus/{genusName}")
      */
-    public function showAction()
+    public function showAction($genusName)
     {
         return new Response("Under the see");
 
