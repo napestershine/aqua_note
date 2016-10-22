@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 
 /**
@@ -125,4 +126,8 @@ class Genus
         $this->funFact = $funFact;
     }
 
+    public function getUpdatedAt()
+    {
+        return new \DateTime('-' . rand(0, 100) . ' days');
+    }
 }
