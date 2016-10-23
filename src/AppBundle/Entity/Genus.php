@@ -33,11 +33,6 @@ class Genus
     private $name;
 
     /**
-     * @ORM\Column(type="string")
-     */
-    private $subFamily;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $speciesCount;
@@ -57,6 +52,12 @@ class Genus
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $notes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SubFamily")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $subFamily;
 
     /**
      * @return mixed
@@ -88,22 +89,6 @@ class Genus
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubFamily()
-    {
-        return $this->subFamily;
-    }
-
-    /**
-     * @param mixed $subFamily
-     */
-    public function setSubFamily($subFamily)
-    {
-        $this->subFamily = $subFamily;
     }
 
     /**
@@ -170,5 +155,21 @@ class Genus
     public function getNotes()
     {
         return $this->notes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubFamily()
+    {
+        return $this->subFamily;
+    }
+
+    /**
+     * @param mixed $subFamily
+     */
+    public function setSubFamily($subFamily)
+    {
+        $this->subFamily = $subFamily;
     }
 }
