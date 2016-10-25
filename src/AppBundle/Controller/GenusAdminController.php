@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/admin")
+ * @Security("is_granted('ROLE_ADMIN')")
  */
 class GenusAdminController extends Controller
 {
     /**
      *
      * @Route("/genus", name="admin_genus_list")
-     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function indexAction()
     {
